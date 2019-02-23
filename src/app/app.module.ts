@@ -7,6 +7,18 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
+/**
+ * Plugins
+ */
+
+import { OneSignal } from "@ionic-native/onesignal";
+import { NativeStorage } from '@ionic-native/native-storage';
+
+/**
+ * Providers
+ */
+import { StorageProvider } from '../providers/storage/storage';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -24,7 +36,10 @@ import { HomePage } from '../pages/home/home';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    OneSignal,
+    NativeStorage,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    StorageProvider
   ]
 })
 export class AppModule {}
